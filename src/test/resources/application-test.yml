@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:ridesharing_test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL;NON_KEYWORDS=KEY,VALUE,YEAR
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  main:
+    allow-bean-definition-overriding: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+  # Disable Redis auto-configuration for tests (no embedded Redis available)
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+
+  mail:
+    host: localhost
+    port: 1025
+
+app:
+  jwt:
+    secret: test-secret-key-for-unit-tests-only-not-for-production-use-placeholder
+    expiration-ms: 86400000
+
+  google-maps:
+    api-key: test-api-key
+
+  payment:
+    stripe:
+      secret-key: sk_test_placeholder
+      publishable-key: pk_test_placeholder
+
+  twilio:
+    account-sid: test-account-sid
+    auth-token: test-auth-token
+    from-number: +10000000000

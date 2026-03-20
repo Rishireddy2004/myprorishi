@@ -1,0 +1,10 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "mvn clean package -Dmaven.test.skip=true"
+  },
+  "deploy": {
+    "startCommand": "java -Dspring.profiles.active=prod -jar target/smart-ride-sharing-system-0.0.1-SNAPSHOT.jar",
+    "restartPolicyType": "ON_FAILURE"
+  }
+}

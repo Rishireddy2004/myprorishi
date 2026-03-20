@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Show Ports After Response",
+  "description": "Reminds the agent to always include port numbers at the end of every response",
+  "version": "1",
+  "when": {
+    "type": "agentStop"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Always append the following at the very end of your last response (if not already there): \"Backend: http://localhost:8080 | Frontend: http://localhost:3000 | Network: http://192.168.31.3:3000\""
+  }
+}

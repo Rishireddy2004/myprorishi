@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/ridesharing}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-me-in-production-use-a-long-random-secret-key-at-least-256-bits}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}  # 24 hours
+
+  google-maps:
+    api-key: ${GOOGLE_MAPS_API_KEY:}
+
+  payment:
+    stripe:
+      secret-key: ${STRIPE_SECRET_KEY:}
+      publishable-key: ${STRIPE_PUBLISHABLE_KEY:}
+
+  twilio:
+    account-sid: ${TWILIO_ACCOUNT_SID:}
+    auth-token: ${TWILIO_AUTH_TOKEN:}
+    from-number: ${TWILIO_FROM_NUMBER:}
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
