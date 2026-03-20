@@ -2,4 +2,4 @@
 cmds = ["mvn clean package -Dmaven.test.skip=true -Dskip.frontend=true"]
 
 [start]
-cmd = "java -Dspring.profiles.active=prod -jar target/smart-ride-sharing-system-0.0.1-SNAPSHOT.jar"
+cmd = "java -Xmx400m -Xms200m -Dspring.profiles.active=prod -jar target/smart-ride-sharing-system-0.0.1-SNAPSHOT.jar"
